@@ -16,7 +16,15 @@ module.exports = {
     mode: 'development',
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'app/index.html'
+            template: 'client/index.html'
         })
-    ]
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, '/client'),
+        compress: true,
+        port: 5000,
+        proxy: {
+            '/api': 'http://localhost:4000'
+        }
+    }
 }
