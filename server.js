@@ -1,8 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+var http = require('http')
+var socketIo = require('socket.io');
+
 var app = express();
-var server = require('http').createServer(app);
+var server = http.createServer(app);
+var io = socketIo(server);
 
 var PORT = 4000;
 
